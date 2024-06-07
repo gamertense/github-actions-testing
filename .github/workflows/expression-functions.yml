@@ -22,6 +22,7 @@ jobs:
       - name: Format and echo string
         run: echo "The formatted string is ${{ format('Hello {0} {1}', 'world', 'from GitHub Actions') }}"
       - name: Join issue labels
+        # Example: The issue labels are bug, enhancement
         run: echo "The issue labels are ${{ join(github.event.issue.labels.*.name, ', ') }}"
       - name: Convert job context to JSON
         run: |
