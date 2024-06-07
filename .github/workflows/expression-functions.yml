@@ -24,10 +24,11 @@ jobs:
       - name: Join issue labels
         run: echo "The issue labels are ${{ join(github.event.issue.labels.*.name, ', ') }}"
       - name: Convert job context to JSON
-        run: echo "Job context in JSON ${{ toJSON(github.job) }}"
+        run: |
+          echo "Job context in JSON: ${{ toJSON(github.job) }}"
       - name: Parse JSON string
         run: |
-          echo "The parsed JSON string is ${{ fromJSON('{\"key\": \"value\"}').key }}"
+          echo "The parsed JSON string is ${{ fromJSON('{\\"key\\": \\"value\\"}').key }}"
       - name: Hash files
         run: echo "The hash of the file is ${{ hashFiles('**/*.yml') }}"
       - name: The job has succeeded
