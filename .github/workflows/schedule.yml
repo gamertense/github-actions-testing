@@ -1,3 +1,5 @@
+name: Schedule Demo
+
 on:
   schedule:
     - cron: "*/2 * * * *"
