@@ -1,0 +1,42 @@
+name: PostgreSQL Image
+on: push
+
+jobs:
+  # Label of the runner job
+  runner-job:
+    # You must use a Linux environment when using service containers or container jobs
+    runs-on: ubuntu-latest
+    services:
+      # Label used to access the service container
+      postgres:
+        # Docker image to pull
+        image: postgres:latest
+        # Environment variables to pass to the service container
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
+        # Ports to expose from the service container
+        ports:
+          - 5432:5432
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: |
+          cd ./github-actions/postgres
+          npm install
+      - name: Connect to PostgreSQL
+        run: node ./github-actions/postgres/client.js
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
+          POSTGRES_HOST: localhost
+          POSTGRES_PORT: 5432
