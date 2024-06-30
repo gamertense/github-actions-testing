@@ -1,4 +1,4 @@
-name: Build matrix
+name: Create a comment on a new issue
 
 on:
   issues:
