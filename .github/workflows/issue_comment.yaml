@@ -7,6 +7,8 @@ on:
 jobs:
   comment-with-action:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     steps:
       - name: Dump github context
         run: echo '${{ toJson(github.event)}}' | jq .
@@ -22,4 +24,3 @@ jobs:
 
             [1]: https://github.com/peter-evans/create-or-update-comment
           reactions: "+1"
-          token: ${{ secrets.GITHUB_TOKEN }}
