@@ -1,4 +1,4 @@
-name: "Continue on error"
+name: "Prevent a job from failure"
 
 on:
   push:
