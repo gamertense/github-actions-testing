@@ -1,0 +1,14 @@
+name: "Continue on error"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  continue-on-error:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Run a command that fails"
+        run: exit 1
+        continue-on-error: true
