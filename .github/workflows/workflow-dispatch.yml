@@ -28,5 +28,12 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ inputs.print_tags }}
     steps:
+      # Print the input directly from vars context
       - name: Print the input tag to STDOUT
         run: echo "The tags are ${{ inputs.tags }}"
+
+      # Print the input from env context
+      - name: Print the input tag to STDOUT
+        run: echo "The tags are $TAGS"
+        env:
+          TAGS: ${{ inputs.tags }}
