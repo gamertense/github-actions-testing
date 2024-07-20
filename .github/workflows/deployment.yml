@@ -19,4 +19,4 @@ jobs:
       url: https://github.com
     steps:
       - name: deploy
-        # ...deployment-specific steps
+        run: echo "Deploying the app"
