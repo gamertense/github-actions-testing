@@ -22,6 +22,7 @@ jobs:
         run: |
           echo "Deploying the app"
           echo "API_KEY: $API_KEY"
+          echo "API_KEY from expression: ${{ secrets.api_key }}"
           echo "DOMAIN_NAME: $DOMAIN_NAME"
         env:
           API_KEY: ${{ secrets.api_key }}
