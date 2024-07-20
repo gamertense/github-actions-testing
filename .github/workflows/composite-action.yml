@@ -1,3 +1,5 @@
+name: Test out my composite action in a workflow
+
 on: [workflow_dispatch]
 
 jobs:
