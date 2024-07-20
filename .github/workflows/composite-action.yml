@@ -1,6 +1,11 @@
 name: Test out my composite action in a workflow
 
-on: [workflow_dispatch]
+on:
+  workflow_dispatch:
+    inputs:
+      who-to-greet:
+        description: "Who to greet"
+        default: "World"
 
 jobs:
   hello_world_job:
@@ -11,7 +16,7 @@ jobs:
       - id: foo
         uses: gamertense/hello-world-composite-action@v1
         with:
-          who-to-greet: "Jack"
+          who-to-greet: ${{ github.event.inputs.who-to-greet }}
       - run: echo random-number "$RANDOM_NUMBER"
         shell: bash
         env:
