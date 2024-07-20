@@ -19,9 +19,10 @@ jobs:
       url: https://github.com
     steps:
       - name: deploy
+        # Put API_KEY in api_key.txt file and print file content in the logs.
         run: |
           echo "Deploying the app"
-          echo "API_KEY: $API_KEY" >> api_key.txt
+          echo "API_KEY from secrets: $API_KEY" >> api_key.txt
           echo "API_KEY from expression: ${{ secrets.api_key }}" >> api_key_expression.txt
           cat api_key.txt
           cat api_key_expression.txt
