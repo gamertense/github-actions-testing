@@ -14,7 +14,7 @@ jobs:
       - name: Set environment variable
         id: set_var
         run: |
-          echo "MY_ENV_VAR=hello" >> $GITHUB_ENV
+          echo "MY_ENV_VAR=hello" >> $GITHUB_ENV"
           echo "::set-output name=MY_ENV_VAR::hello"
 
   job2:
