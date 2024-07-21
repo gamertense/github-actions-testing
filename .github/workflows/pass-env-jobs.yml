@@ -22,4 +22,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Use environment variable from job1
-        run: echo "Value of MY_ENV_VAR from job1 is ${{ needs.job1.outputs.my_env_var }}"
+        env:
+          MY_ENV_VAR: ${{ needs.job1.outputs.my_env_var }}
+        run: echo "Value of MY_ENV_VAR from job1 is $MY_ENV_VAR"
