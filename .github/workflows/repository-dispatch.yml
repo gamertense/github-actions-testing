@@ -12,5 +12,5 @@ jobs:
         run: echo "Event name is ${{ github.event_name }}"
       - name: Print the event payload
         env:
-          PAYLOAD: ${{ toJson(github.event.client_payload) }}
-        run: echo "Payload is $PAYLOAD"
+          MESSAGE: ${{ github.event.client_payload.message }}
+        run: echo "Payload is $MESSAGE"
