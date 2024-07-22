@@ -13,4 +13,4 @@ jobs:
       - name: Print the event payload
         env:
           MESSAGE: ${{ github.event.client_payload.message }}
-        run: echo "Payload is $MESSAGE"
+        run: echo "Message is $MESSAGE"
